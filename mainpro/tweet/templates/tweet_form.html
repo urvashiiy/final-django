@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Code and share through tweet
+{% endblock %}
+
+{% block content %}
+<h1 class= "text-center mt-4 mb-2">Welcome to my django Company site</h1>
+ 
+<h2>
+    {% if form.instance.pk %}
+    Edit Tweet
+    {% else %}
+    Create Tweet
+    {% endif %}
+    <form method="post" enctype="mulripart/form-data " class="form">
+        {{form}}
+    </form>
+</h2>
+
+{% endblock %}

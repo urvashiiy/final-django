@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Code and share through tweet
+{% endblock %}
+
+{% block content %}
+<h1 class= "text-center mt-4 mb-2">Welcome to my django Company site</h1>
+<a class = "btn btn-primary mb-4 " href="{% url 'tweet_create' %}">Create New Tweet</a>
+
+<div class="container row gap-3">
+    {% for tweet in tweets  %}
+    <div class="card" style="width: 18rem;">
+        <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">{{tweet.text}}</p>
+          <a class="btn btn-primary" href="{% url 'tweet_edit' tweet.id %}">Edit</a>
+          <a class="btn btn-danger" href="{% url 'tweet_delete' tweet.id %}">Delete</a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
